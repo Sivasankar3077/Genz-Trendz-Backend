@@ -36,6 +36,10 @@ app.use(fileUpload({
     }))
 app.use(cookieParser())
 
+app.get("/", (req, res) => {
+  res.status(200).send("GenZ Trendz Backend is Running!");
+});
+
 //routes
 app.use('/api' , productRoutes)
 app.use('/api/auth' , userRoutes)
