@@ -58,7 +58,7 @@ userSchema.pre('save' , async function(){
 })
 
 userSchema.methods.generateToken = function(){
-    return jwt.sign({id:this._id , role : this.role , username:this.username , avatar : this.avatar} , process.env.JWT_SECRET , {expiresIn : '60m'});
+    return jwt.sign({id:this._id , role : this.role , username:this.username , avatar : this.avatar} , process.env.JWT_SECRET , {expiresIn : '2d'});
 }
 
 userSchema.methods.generateResetPasswordToken = function(){
