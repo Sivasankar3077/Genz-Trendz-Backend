@@ -24,45 +24,6 @@ async function handleGetAllProducts(req,res){
     }
 
 }
-// async function handleGetAllProducts(req, res) {
-//     try {
-//         const resultPerPage = 10;
-        
-//         // FIX 1: Run count calculation with a completely fresh, separate Mongoose clone instance query
-//         const countHelper = new APIHelper(Product.find(), req.query).search().filter();
-//         const productCount = await countHelper.query.countDocuments(); 
-        
-//         const totalPages = Math.ceil(productCount / resultPerPage);
-//         const currentPage = Number(req.query.page) || 1;
-        
-//         if (totalPages > 0 && currentPage > totalPages) {
-//             return res.status(404).json({ 'status': "failed", msg: "Page does not exist" });
-//         }
-        
-//         // FIX 2: Dynamic pagination query standard execution block run
-//         const apiHelper = new APIHelper(Product.find(), req.query).search().filter().pagination(resultPerPage);
-//         const products = await apiHelper.query;
-        
-//         // FIX 3: Backend data mapping standards output response format fix
-//         // If products are genuinely empty, return status 404 so error triggers beautifully
-//         if (!products || products.length === 0) {
-//             return res.status(404).json({ status: "failed", msg: "No Products Found" });
-//         }
-        
-//         console.log("Products successfully fetched mapla:", products.length);
-//         return res.status(200).json({ 
-//             status: "success", 
-//             products, 
-//             productCount, 
-//             totalPages, 
-//             currentPage, 
-//             resultPerPage 
-//         });
-//     }
-//     catch (err) {
-//         return res.status(500).json({ status: "failed", msg: err.message });
-//     }
-// }
 
 
 //get product by id
